@@ -73,8 +73,8 @@ func countOccurrences(matrix [][]rune, targetSequence []rune, directionsSet [][]
 	numRows := len(matrix)
 	for i := 0; i < numRows; i++ {
 		for j := 0; j < numCols; j++ {
+			// Search for the word, starting from a given cell, trying all possible directions
 			for _, directions := range directionsSet {
-				match := false
 				iScan := i
 				jScan := j
 
@@ -95,9 +95,6 @@ func countOccurrences(matrix [][]rune, targetSequence []rune, directionsSet [][]
 				}
 				// If we successfully scanned the whole target sequence, then we have a match
 				if k == len(directions) {
-					match = true
-				}
-				if match {
 					result++
 				}
 			}
